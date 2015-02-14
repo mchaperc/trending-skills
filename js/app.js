@@ -1,19 +1,16 @@
 (function() {
 	$(document).ready($(function () {
-		$('#channel-query').submit(function(event){
-			alert('yo');
+		$('#term-query').submit(function(event){
 			var params = {
-				channel: $('#channel-name').val(),
-				metrics: 'viewerPercentage',
-				dimensions: 'ageGroup,gender',
-				startDate: '2014-01-01',
-				endDate: '2015-01-01',
-				filters: 'country==US',
-				key: 'AIzaSyBVUT3sQiKxHRHRnwUpgITHhFb9JefIWIY',
+				like: $('#like').val(),
+				countries: $('#countries').val(),
+				dateFrom: $('#dateFrom').val(),
+				dateTo: $('#dateTo').val(),
+				key: 'TTeZJQPWkFvyyXVB'
 			}
 				$.ajax({
 					type: 'GET',
-					url: 'https://www.googleapis.com/youtube/analytics/v1/reports',
+					url: 'trendyskills.com/service?q=',
 					data: params,
 					contentType: "application/json; charset=utf-8",
 					dataType: "json",

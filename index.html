@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Youtube Charting</title>
+	<title>What's Trending?</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Vollkorn' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
@@ -13,11 +13,26 @@
 	<div class="background-image"></div>
 	<div class="content">
 	<header>
-		<h1>What is the demographic makeup of your favorite Youtube channel?</h1>
+		<h1>Take the plunge...</h1>
+		<p>Curious about what tech languages or skills you need to learn to be marketable? Provide a language or skill to see how many jobs postings for that skill there have been on "Monster.com" within the past year in the following countries: USA, UK, Germany, Sweden, Spain, Ireland, Netherlands, Austria, Czech Republic, Belgium, Finland, India and Greece. Optionally, you can filter out each country by specifying the country for which you would like to see results.</p>
 	</header>
-	<form id="channel-query">
-		<label>Channel Name:</label>
-		<input type="text" id="channel-name" autofocus required>
+	<form id="term-query">
+		<div id="term">
+			<label>Language/Skill:</label>
+			<input type="text" id="search-term" autofocus required>
+		</div>
+		<div id="country">
+			<label>Country:</label>
+			<input type="text" id="social-query">
+		</div>
+		<div id="dateFromPicker">
+			<label>Date From:</label>
+			<input type="date" id="dateFrom">
+		</div>
+		<div id="dateToPicker">
+			<label>Date To:</label>
+			<input type="date" id="dateTo">
+		</div>
 		<input type="submit" value="GO">
 	</form>
 	<ul class="results">
@@ -27,68 +42,6 @@
 		</li>
 	</ul>
 	</div>
-	<!--Add a button for the user to click to initiate auth sequence -->
-    <button id="authorize-button" style="visibility: hidden">Authorize</button>
-    <script type="text/javascript">
-
-      var clientId = '61063993719';
-
-      var apiKey = 'ZxzP2SgXKw7WsUav8BOe6biK';
-
-      var scopes = 'https://www.googleapis.com/auth/yt-analytics.readonly';
-
-      function handleClientLoad() {
-        // Step 2: Reference the API key
-        gapi.client.setApiKey(apiKey);
-        window.setTimeout(checkAuth,1);
-      }
-
-      function checkAuth() {
-        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
-      }
-
-      function handleAuthResult(authResult) {
-        var authorizeButton = document.getElementById('authorize-button');
-        if (authResult && !authResult.error) {
-          authorizeButton.style.visibility = 'hidden';
-          makeApiCall();
-        } else {
-          authorizeButton.style.visibility = '';
-          authorizeButton.onclick = handleAuthClick;
-        }
-      }
-
-      function handleAuthClick(event) {
-        // Step 3: get authorization to use private data
-        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
-        return false;
-      }
-
-      // Load the API and make an API call.  Display the results on the screen.
-      function makeApiCall() {
-        // Step 4: Load the Google+ API
-        gapi.client.load('plus', 'v1').then(function() {
-          // Step 5: Assemble the API request
-          var request = gapi.client.plus.people.get({
-            'userId': 'me'
-          });
-          // Step 6: Execute the API request
-          request.then(function(resp) {
-            var heading = document.createElement('h4');
-            var image = document.createElement('img');
-            image.src = resp.result.image.url;
-            heading.appendChild(image);
-            heading.appendChild(document.createTextNode(resp.result.displayName));
-
-            document.getElementById('content').appendChild(heading);
-          }, function(reason) {
-            console.log('Error: ' + reason.result.error.message);
-          });
-        });
-      }
-    </script>
-    // Step 1: Load JavaScript client library
-    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 	<script src="js/jQuery.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<script src="http://code.highcharts.com/modules/exporting.js"></script>
