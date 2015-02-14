@@ -10,7 +10,7 @@
 			}
 				$.ajax({
 					type: 'GET',
-					url: 'http://trendyskills.com/service?q=',
+					url: 'trendyskills.com/service?q=',
 					data: params,
 					contentType: "application/json; charset=utf-8",
 					dataType: "json",
