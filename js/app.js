@@ -8,7 +8,7 @@
 			
 			var result = $.ajax({
 					type: 'GET',
-					url: 'trendyskills.com/service?q=',
+					url: 'trendyskills.com/service?q=keywords',
 					dataType: 'jsonp',
 					data: params
 				});
