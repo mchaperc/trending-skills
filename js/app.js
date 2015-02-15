@@ -5,15 +5,17 @@
 				like: $('#like').val(),
 				key: 'TTeZJQPWkFvyyXVB'
 			}
-			
-			var result = $.ajax({
-					type: 'GET',
-					url: 'trendyskills.com/service?q=keywords',
-					dataType: 'jsonp',
-					data: params
-				});
 
-			console.log(result);
+			var url = 'trendyskills.com/service?q=keywords';
+			
+			var results = $.ajax({
+			  url: url,
+			  data: params,
+			  // success: success,
+			  dataType: 'json'
+			});
+
+			console.log(results);
 
 			console.log(params);
 		event.preventDefault();
