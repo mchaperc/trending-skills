@@ -8,7 +8,7 @@
 
 			alert(params.like);
 
-			var url = 'trendyskills.com/service?q=keywords&like=' + params.like + '&key=' + params.key;
+			var url = 'http://trendyskills.com/service?q=keywords&like=' + params.like + '&key=' + params.key;
 			
 			var results = $.ajax({
 			  url: url,
