@@ -13,7 +13,7 @@
 			var results = $.ajax({
 			  url: url,
 			  // success: success,
-			  dataType: 'json'
+			  dataType: 'jsonp'
 			});
 
 			console.log(results);
