@@ -11,15 +11,9 @@
 			var results = $.ajax({
 			  url: url,
 			  // success: success,
-			  dataType: 'jsonp'
-			});
+			  dataType: 'jsonp',
 
-			alert(results.responseJSON.keywords);
-			alert(results.keywords);
-			var job2 = results.responseJSON.keywords[1];
-			var job3 = results.responseJSON.keywords[2];
-			var job4 = results.responseJSON.keywords[3];
-			var job5 = results.responseJSON.keywords[4];
+			});
 
 			// $(function () {
 
