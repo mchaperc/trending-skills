@@ -75,7 +75,7 @@
 			//     });
 			// });
 
-			console.log(results);
+			console.log(results.responseJSON);
 
 			console.log(params);
 		event.preventDefault();
