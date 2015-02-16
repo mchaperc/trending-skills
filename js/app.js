@@ -10,9 +10,7 @@
 			
 			var results = $.ajax({
 			  url: url,
-			  // success: success,
 			  dataType: 'jsonp',
-
 			});
 
 			// $(function () {
@@ -75,9 +73,8 @@
 			//     });
 			// });
 
-			console.log(results.keywords);
+			console.log(results);
 
-			console.log(params);
 		event.preventDefault();
 		});
 	}))
